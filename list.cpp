@@ -2,16 +2,16 @@
 #include <string>
 using namespace std;
 
-class node 
+class Node 
 {
     public:
     int noMhs;
-    node*next;
+    Node*next;
 };
 
 class list
 {
-    node*START;
+    Node*START;
     public:
     list()
     {
@@ -23,7 +23,7 @@ class list
         cout << "\nMasukan Nomor Mahasiswa: ";
         cin >> nim;
 
-        node *nodeBaru = new node;
+        Node *nodeBaru = new Node;
         nodeBaru->noMhs = nim;
 
         if(START == NULL || nim <= START->noMhs)
@@ -34,10 +34,38 @@ class list
                 return;
             }
 
-            node *previous = START;
-            node *current = START;
+            Node *previous = START;
+            Node *current = START;
 
             while((current !=NULL) && (nim >= current->noMhs))
+            {
+                if (nim == current->noMhs)
+                {
+                    cout << "\nDuplikasi noMhs tidak dijinkan\n";
+                    return;
+                }
+                previous = current;
+                current = current->next;
+            }
+
         }
+        nodeBaru->next = current;
+            previous->next = nodeBaru;
+    }
+    bool listEmpty()
+    {
+        return (START ==NULL);
+    }
+    bool Search(int nim, Node **previous,Node **current)
+    {
+        *previous = START;
+        *current = START;
+
+        while ((*current != NULL)&& (nim != (*current)->noMhs))
+        {
+            *previous = *current;
+            *current = (*current)->next;
+        }
+        
     }
 };
