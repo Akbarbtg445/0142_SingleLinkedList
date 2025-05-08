@@ -173,8 +173,7 @@ int main()
                         cout << "Pilihan Salah !." << endl ;
                     }
                     break;
-                }
-                    
+                }  
         }while (ch != '5');
     }
 }
