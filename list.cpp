@@ -137,8 +137,6 @@ int main()
                     else 
                     
                         cout << endl << "Data dengan nomor mahasiswa " << nim << "berhasil di hapus" << endl;
-
-                    
                  }
                     break ;
                 case '3':
