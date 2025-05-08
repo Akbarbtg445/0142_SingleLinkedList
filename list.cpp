@@ -141,40 +141,40 @@ int main()
                     
                  }
                     break ;
-                    case '3':
+                case '3':
+                {
+                    mhs.traverse();
+                }
+                break;
+                case '4':
+                {
+                if (mhs.listEmpty() == true)
                     {
-                        mhs.traverse();
+                    cout << "\nList Kosong";
+                    break;
+                    }
+                    Node *previous, *current;
+                    cout << endl << "Masukan no mahasiswa yang di cari :";
+                    cin >> nim;
+                    if (mhs.Search(nim, &previous, &current) == false)
+                    cout << endl << "Data tidak di temukan" << endl;
+                    else
+                    {
+                        cout << endl << "\nNo Mahasiswa :" << current->noMhs << endl;
+                        cout <<"\n";
                     }
                     break;
-                    case '4':
-                    {
-                        if (mhs.listEmpty() == true)
-                        {
-                            cout << "\nList Kosong";
-                            break;
-                        }
-                        Node *previous, *current;
-                        cout << endl << "Masukan no mahasiswa yang di cari :";
-                        cin >> nim;
-                        if (mhs.Search(nim, &previous, &current) == false)
-                        cout << endl << "Data tidak di temukan" << endl;
-                        else
-                        {
-                            cout << endl << "\nNo Mahasiswa :" << current->noMhs << endl;
-                            cout <<"\n";
-                        }
-                        break;
-                        case '5':{
+                    case '5':{
 
-                        }
-                        break;
-                        default:
-                        {
-                            cout << "Pilihan Salah !." << endl ;
-                        }
-                        break;
                     }
+                    break;
+                    default:
+                    {
+                        cout << "Pilihan Salah !." << endl ;
+                    }
+                    break;
+                }
                     
-                }while (ch != '5');
+        }while (ch != '5');
     }
 }
